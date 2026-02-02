@@ -3,99 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExtremeOptimizer | vrtxqz Edition</title>
+    <title>ExtremeOptimizer | vrtxqz Red Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gx-sapphire: #0F52BA;
-            --gx-red: #ff0033; /* Opera GX iconic red accent */
-            --gx-dark: #050505;
+            --gx-red: #ff0033;
+            --gx-red-glow: rgba(255, 0, 51, 0.5);
+            --gx-black: #050505;
         }
         body {
-            background-color: var(--gx-dark);
+            /* Hiệu ứng Gradient từ Đen xuống Đỏ ở cuối trang */
+            background: linear-gradient(to bottom, var(--gx-black) 70%, #2a0008 100%);
             color: white;
             font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
             overflow-x: hidden;
         }
-        .gx-border {
-            border: 2px solid var(--gx-sapphire);
-            clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+        /* Góc cắt đặc trưng Opera GX */
+        .gx-panel {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid var(--gx-red);
+            clip-path: polygon(0 0, 97% 0, 100% 3%, 100% 100%, 3% 100%, 0 97%);
+            backdrop-filter: blur(10px);
         }
-        .neon-glow {
-            filter: drop-shadow(0 0 10px var(--gx-sapphire));
+        .red-glow {
+            filter: drop-shadow(0 0 15px var(--gx-red-glow));
         }
-        .btn-gx {
-            background: transparent;
-            border: 1px solid var(--gx-sapphire);
+        .btn-gx-red {
+            border: 1px solid var(--gx-red);
             position: relative;
-            transition: all 0.3s;
-            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .btn-gx:hover {
-            background: var(--gx-sapphire);
-            box-shadow: 0 0 25px var(--gx-sapphire);
-            transform: skewX(-10deg);
+        .btn-gx-red:hover {
+            background: var(--gx-red);
+            box-shadow: 0 0 30px var(--gx-red);
+            transform: scale(1.02) skewX(-5deg);
         }
-        .glass-panel {
-            background: rgba(15, 82, 186, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(15, 82, 186, 0.2);
+        /* Thanh ngăn cách màu đỏ rực */
+        .accent-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gx-red), transparent);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center">
+<body class="flex flex-col items-center">
 
-    <div class="w-full h-1 bg-gradient-to-r from-transparent via-[#0F52BA] to-transparent neon-glow"></div>
+    <div class="w-full accent-line red-glow mb-10"></div>
 
-    <nav class="w-full max-w-6xl p-8 flex justify-between items-center">
-        <div class="text-3xl font-bold tracking-widest font-['Orbitron'] text-[#0F52BA]">
-            VRTX<span class="text-white">QZ</span>
+    <nav class="w-full max-w-6xl p-6 flex justify-between items-center">
+        <div class="text-3xl font-bold tracking-tighter font-['Orbitron'] text-white">
+            VRTX<span class="text-[#ff0033]">QZ</span>
         </div>
-        <div class="flex gap-8 text-sm tracking-tighter font-bold">
-            <a href="#" class="hover:text-[#0F52BA] transition">DASHBOARD</a>
-            <a href="#" class="hover:text-[#0F52BA] transition text-[#0F52BA]">EXTREME MODE</a>
-            <a href="#" class="hover:text-[#0F52BA] transition">RESOURCES</a>
+        <div class="flex gap-8 text-sm font-bold tracking-widest">
+            <a href="#" class="hover:text-[#ff0033] transition">HOME</a>
+            <a href="#" class="text-[#ff0033] border-b border-[#ff0033]">EXTREME</a>
+            <a href="#" class="hover:text-[#ff0033] transition text-zinc-500">GITHUB</a>
         </div>
     </nav>
 
-    <main class="flex flex-col items-center mt-20 px-4 text-center">
-        <h1 class="text-7xl font-black mb-4 font-['Orbitron'] tracking-tighter">
-            EXTREME <span class="text-[#0F52BA] neon-glow">OPTIMIZER</span>
+    <main class="flex flex-col items-center mt-16 px-4 w-full max-w-4xl text-center">
+        <h1 class="text-7xl md:text-8xl font-black mb-2 font-['Orbitron'] tracking-tighter italic">
+            EXTREME <span class="text-[#ff0033] red-glow">OPTIMIZER</span>
         </h1>
-        <p class="text-zinc-500 max-w-lg mb-12 uppercase tracking-widest text-sm">
-            Unleash maximum hardware potential for elite gaming performance.
+        <div class="accent-line w-32 mb-8"></div>
+        <p class="text-zinc-400 max-w-md mb-12 uppercase tracking-[0.3em] text-xs">
+            Engineered for elite competitive gaming performance.
         </p>
 
-        <div class="gx-border glass-panel p-12 max-w-2xl w-full">
-            <div class="grid grid-cols-2 gap-8 mb-10">
-                <div class="text-left border-l-2 border-[#0F52BA] pl-4">
-                    <h3 class="text-xs text-zinc-500 uppercase">System Status</h3>
-                    <p class="text-xl font-bold">UNOPTIMIZED</p>
+        <div class="gx-panel p-10 w-full relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,0,51,0.05)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 relative z-10">
+                <div class="text-left border-l-4 border-[#ff0033] pl-6">
+                    <h3 class="text-xs text-[#ff0033] font-bold uppercase tracking-widest">Engine Status</h3>
+                    <p class="text-2xl font-black tracking-tighter">REDLINE ACTIVE</p>
                 </div>
-                <div class="text-left border-l-2 border-zinc-700 pl-4">
-                    <h3 class="text-xs text-zinc-500 uppercase">Current Version</h3>
-                    <p class="text-xl font-bold text-[#0F52BA]">v1.0.4-GX</p>
+                <div class="text-left border-l-4 border-zinc-700 pl-6">
+                    <h3 class="text-xs text-zinc-500 font-bold uppercase tracking-widest">Performance Boost</h3>
+                    <p class="text-2xl font-black tracking-tighter text-white">+45% FPS</p>
                 </div>
             </div>
             
-            <button class="btn-gx w-full py-5 text-2xl font-black italic tracking-widest">
-                START OPTIMIZATION
+            <button class="btn-gx-red w-full py-6 text-3xl font-black italic tracking-tighter italic z-10 relative">
+                FORCE OPTIMIZE
             </button>
         </div>
 
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
-            <div class="p-6 sapphire-bg border-b-2 border-[#0F52BA]/30 hover:border-[#0F52BA] transition cursor-pointer">
-                <h4 class="font-bold mb-2">RAM CLEANER</h4>
-                <p class="text-xs text-zinc-500">Purge unnecessary background processes.</p>
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-32">
+            <div class="p-6 gx-panel hover:bg-red-950/20 transition group">
+                <div class="w-10 h-1 bg-[#ff0033] mb-4 group-hover:w-full transition-all"></div>
+                <h4 class="font-bold text-left tracking-widest uppercase">Kernel Tweaks</h4>
             </div>
-            <div class="p-6 sapphire-bg border-b-2 border-[#0F52BA]/30 hover:border-[#0F52BA] transition cursor-pointer">
-                <h4 class="font-bold mb-2">LATENCY FIX</h4>
-                <p class="text-xs text-zinc-500">Optimizing network packets for zero lag.</p>
+            <div class="p-6 gx-panel hover:bg-red-950/20 transition group">
+                <div class="w-10 h-1 bg-[#ff0033] mb-4 group-hover:w-full transition-all"></div>
+                <h4 class="font-bold text-left tracking-widest uppercase">Input Lag Fix</h4>
             </div>
-            <div class="p-6 sapphire-bg border-b-2 border-[#0F52BA]/30 hover:border-[#0F52BA] transition cursor-pointer">
-                <h4 class="font-bold mb-2">CPU TURBO</h4>
-                <p class="text-xs text-zinc-500">Prioritize game threads on high cores.</p>
+            <div class="p-6 gx-panel hover:bg-red-950/20 transition group">
+                <div class="w-10 h-1 bg-[#ff0033] mb-4 group-hover:w-full transition-all"></div>
+                <h4 class="font-bold text-left tracking-widest uppercase">RAM Purge</h4>
             </div>
         </div>
     </main>
