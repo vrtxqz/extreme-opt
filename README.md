@@ -1,2 +1,2 @@
-# extreme-opt
+# ExtremeOptimizer
 Super Optimizer specially designed for Gamers
